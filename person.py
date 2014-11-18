@@ -28,7 +28,7 @@ class Person(models.Model):
         ordering = ('last_name', 'first_name', 'middle_name')
         verbose_name_plural = 'People'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.full_name_forward
 
     def _get_full_name(self, last_name_first=False, include_middle_name=False):
