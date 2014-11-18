@@ -11,7 +11,7 @@ class Address(models.Model):
         (3, 'Other'),
     )
     ADDRESS_TYPE_DEFAULT = 1
-    address_type = models.PositiveSmallIntegerField(null=False, choices=ADDRESS_TYPE_CHOICES,
+    address_type = models.PositiveSmallIntegerField(choices=ADDRESS_TYPE_CHOICES,
                                                     default=ADDRESS_TYPE_DEFAULT)
 
     street_1 = models.CharField(blank=False, max_length=127)
@@ -23,7 +23,6 @@ class Address(models.Model):
     country = models.CharField(blank=True, max_length=63)
 
     class Meta:
-        abstract = True
         verbose_name_plural = u'Addresses'
         verbose_name = u'Address'
 
@@ -39,7 +38,7 @@ class Address(models.Model):
         return u', '.join([field for field in (self.city, self.state_province) if field])
 
     @property
-    def city_state_postal(self):
+    def city_state_postal_code(self):
         return u' '.join([field for field in (self.city, self.state_province, self.postal_code) if field])
 
     @property
