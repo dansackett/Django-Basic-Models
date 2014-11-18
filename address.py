@@ -6,9 +6,9 @@ class Address(models.Model):
     A basic address that doesn't make assumptions about which countr(y|ies) it's used for.
     """
     ADDRESS_TYPE_CHOICES = (
-        (1, 'Home'),
-        (2, 'Business'),
-        (3, 'Other'),
+        (10, 'Home'),
+        (20, 'Business'),
+        (30, 'Other'),
     )
     ADDRESS_TYPE_DEFAULT = 1
     address_type = models.PositiveSmallIntegerField(choices=ADDRESS_TYPE_CHOICES,
