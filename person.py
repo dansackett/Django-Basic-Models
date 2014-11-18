@@ -16,7 +16,7 @@ class Person(models.Model):
 
     prefix = models.CharField(blank=True, max_length=31)
     suffix = models.CharField(blank=True, max_length=31)
-    suffix_requires_comma = models.BooleanField(default=True, help_text="Some suffixes like 'Jr.' require a commna, "
+    suffix_requires_comma = models.BooleanField(default=True, help_text="Some suffixes like 'Jr.' require a comma, "
                                                                         "while others, such as 'III', don't.")
 
     gender = models.CharField(null=True, max_length=1, blank=True, choices=GENDER_CHOICES)
