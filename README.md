@@ -1,4 +1,4 @@
 Django-Base-Models
 ==================
 
-Uses the __str__ method instead of __unicode__, which is the Python 3 way of doing instance representation. But the rest of the code should work in both.
+Written in Python 3, but the are only a few changes to be make to make these work in Python 2, such as the DRY-er super(), and usage of '____str____' instead of '____unicode____'.
