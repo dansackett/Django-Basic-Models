@@ -14,13 +14,13 @@ class Address(models.Model):
     address_type = models.PositiveSmallIntegerField(null=False, choices=ADDRESS_TYPE_CHOICES,
                                                     default=ADDRESS_TYPE_DEFAULT)
 
-    street_1 = models.CharField(blank=True, max_length=127, null=True)
-    street_2 = models.CharField(blank=True, max_length=127, null=True)
-    street_3 = models.CharField(blank=True, max_length=127, null=True)
-    city = models.CharField(blank=False, max_length=63, null=True)
-    state_province = models.CharField(blank=False, max_length=63, null=True)
-    postal_code = models.CharField(blank=True, max_length=15, null=True)
-    country = models.CharField(blank=True, max_length=63, null=True)
+    street_1 = models.CharField(blank=False, max_length=127)
+    street_2 = models.CharField(blank=True, max_length=127)
+    street_3 = models.CharField(blank=True, max_length=127)
+    city = models.CharField(blank=False, max_length=63)
+    state_province = models.CharField(blank=False, max_length=63)
+    postal_code = models.CharField(blank=True, max_length=15)
+    country = models.CharField(blank=True, max_length=63)
 
     class Meta:
         abstract = True
