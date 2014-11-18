@@ -75,7 +75,7 @@ class Person(models.Model):
     def full_name_backward_with_middle_name(self):
         return self._get_full_name(last_name_first=True, include_middle_name=True)
 
-    def get_birth_death_span(self, date_format='%b. %d %Y'):
+    def get_birth_death_span(self, date_format='%b. %d, %Y'):
         birth = self.birth_date.strftime(date_format) if self.birth_date else None
         death = self.death_date.strftime(date_format) if self.death_date else None
 
