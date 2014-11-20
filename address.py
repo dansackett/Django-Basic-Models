@@ -10,7 +10,7 @@ class Address(models.Model):
         (20, 'Business'),
         (30, 'Other'),
     )
-    ADDRESS_TYPE_DEFAULT = 1
+    ADDRESS_TYPE_DEFAULT = 10
     address_type = models.PositiveSmallIntegerField(choices=ADDRESS_TYPE_CHOICES,
                                                     default=ADDRESS_TYPE_DEFAULT)
 
