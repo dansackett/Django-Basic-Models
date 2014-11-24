@@ -1,15 +1,15 @@
-from django.db import models
 from django_extensions.db.fields import UUIDField
+from django_extensions.db.models import TimeStampedModel
 
 
-class CommonFieldsModelBase(models.Model):
+class CommonFieldsModelBase(TimeStampedModel):
     """
     this class just provides several base fields
+    uuid: a uuid4 field
+    created: creation timestamp (from TimeStampModel)
+    modified: modified timestamp (from TimeStampModel)
     """
-    # django-extensions required for UUIDField
     uuid = UUIDField()
-    date_added = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
