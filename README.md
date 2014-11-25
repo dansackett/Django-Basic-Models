@@ -1,6 +1,6 @@
 Django-Base-Models
 ==================
 
-Written in Python 3.x, but only a few changes are required to make these work in Python 2.x, such as the `super()` method, and changing `__str__` to `__unicode__`.
+Written for Python 3.x, but compatible with 2.7.x.
 
 These models are inherently opinionated and intended as examples from which to draw inspiration. While you can copy them wholesale, it's will often be a better idea to adapt them to your needs.
