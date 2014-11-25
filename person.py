@@ -1,11 +1,18 @@
-from django.db import models
+from __future__ import unicode_literals
+
 from datetime import date
+from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 
 
+@python_2_unicode_compatible
 class Person(models.Model):
     """
     A relatively simple Person model
     """
+
+
+
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
@@ -35,7 +42,7 @@ class Person(models.Model):
         if last_name_first:
             name = ', '.join([name for name in (self.last_name,
                                                 self.get_first_name_with_prefix(include_middle_name=include_middle_name)
-                                                ) if name])
+            ) if name])
         else:
             name = ' '.join([name for name in (self.get_first_name_with_prefix(include_middle_name=include_middle_name),
                                                self.last_name) if name])

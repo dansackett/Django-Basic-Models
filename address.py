@@ -1,6 +1,7 @@
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 
-
+@python_2_unicode_compatible
 class Address(models.Model):
     """
     A basic address that doesn't make assumptions about which countr(y|ies) it's used for.
