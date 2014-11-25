@@ -10,12 +10,11 @@ class Person(models.Model):
     """
     A relatively simple Person model
     """
-
-
-
+    GENDER_CHOICE_MALE = 'M'
+    GENDER_CHOICE_FEMALE = 'F'
     GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female'),
+        (GENDER_CHOICE_MALE, 'Male'),
+        (GENDER_CHOICE_FEMALE, 'Female'),
     )
     first_name = models.CharField(max_length=31, blank=False)
     middle_name = models.CharField(max_length=31, blank=True)
@@ -25,9 +24,7 @@ class Person(models.Model):
     suffix = models.CharField(blank=True, max_length=31)
     suffix_requires_comma = models.BooleanField(default=True, help_text="Some suffixes like 'Jr.' require a comma, "
                                                                         "while others, such as 'III', don't.")
-
     gender = models.CharField(null=True, max_length=1, blank=True, choices=GENDER_CHOICES)
-
     birth_date = models.DateField(null=True, blank=True)
     death_date = models.DateField(null=True, blank=True)
 
