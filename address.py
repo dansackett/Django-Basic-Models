@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext as _
 
 @python_2_unicode_compatible
 class Address(models.Model):
@@ -11,9 +12,9 @@ class Address(models.Model):
     ADDRESS_CHOICE_OTHER = 30
 
     ADDRESS_TYPE_CHOICES = (
-        (ADDRESS_CHOICE_HOME, 'Home'),
-        (ADDRESS_CHOICE_BUSINESS, 'Business'),
-        (ADDRESS_CHOICE_OTHER, 'Other'),
+        (ADDRESS_CHOICE_HOME, _('Home')),
+        (ADDRESS_CHOICE_BUSINESS, _('Business')),
+        (ADDRESS_CHOICE_OTHER, _('Other')),
     )
     address_type = models.PositiveSmallIntegerField(choices=ADDRESS_TYPE_CHOICES,
                                                     default=ADDRESS_CHOICE_HOME)
@@ -26,8 +27,8 @@ class Address(models.Model):
     country = models.CharField(blank=True, max_length=63)
 
     class Meta:
-        verbose_name_plural = 'Addresses'
-        verbose_name = 'Address'
+        verbose_name_plural = _('Addresses')
+        verbose_name = _('Address')
 
     def __str__(self):
         return '{}: {}'.format(self.get_address_type_display(), self.single_line_address)

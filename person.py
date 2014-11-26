@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from datetime import date
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext as _
 
 
 @python_2_unicode_compatible
@@ -10,11 +11,11 @@ class Person(models.Model):
     """
     A relatively simple Person model
     """
-    GENDER_CHOICE_MALE = 'M'
-    GENDER_CHOICE_FEMALE = 'F'
+    GENDER_CHOICE_MALE = _('M')
+    GENDER_CHOICE_FEMALE = _('F')
     GENDER_CHOICES = (
-        (GENDER_CHOICE_MALE, 'Male'),
-        (GENDER_CHOICE_FEMALE, 'Female'),
+        (GENDER_CHOICE_MALE, _('Male')),
+        (GENDER_CHOICE_FEMALE, _('Female')),
     )
     first_name = models.CharField(max_length=31, blank=False)
     middle_name = models.CharField(max_length=31, blank=True)
@@ -22,15 +23,17 @@ class Person(models.Model):
 
     prefix = models.CharField(blank=True, max_length=31)
     suffix = models.CharField(blank=True, max_length=31)
-    suffix_requires_comma = models.BooleanField(default=True, help_text="Some suffixes like 'Jr.' require a comma, "
-                                                                        "while others, such as 'III', don't.")
+
+    suffix_comma_help_text = _("Some suffixes like 'Jr.' require a comma, while others, such as 'III', don't.")
+    suffix_requires_comma = models.BooleanField(default=True,
+                                                help_text=suffix_comma_help_text)
     gender = models.CharField(null=True, max_length=1, blank=True, choices=GENDER_CHOICES)
     birth_date = models.DateField(null=True, blank=True)
     death_date = models.DateField(null=True, blank=True)
 
     class Meta:
         ordering = ('last_name', 'first_name', 'middle_name')
-        verbose_name_plural = 'People'
+        verbose_name_plural = _('People')
 
     def __str__(self):
         return self.full_name_forward
